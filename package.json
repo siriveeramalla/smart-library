@@ -1,0 +1,25 @@
+{
+  "name": "library-search",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "mocha tests/lib.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siriveeramalla/smart-library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siriveeramalla/smart-library/issues"
+  },
+  "homepage": "https://github.com/siriveeramalla/smart-library#readme",
+  "description": "",
+  "devDependencies": {
+    "chromedriver": "^141.0.1",
+    "mocha": "^11.7.4",
+    "selenium-webdriver": "^4.36.0"
+  }
+}
