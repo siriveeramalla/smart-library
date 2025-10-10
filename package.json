@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
-    "test": "mocha tests/lib.test.js"
+    "test": "mocha tests/lib.test.js",
+    "start": "node script.js"
   },
   "repository": {
     "type": "git",
