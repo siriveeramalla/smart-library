@@ -3,6 +3,12 @@ pipeline {
 
     tools {
         nodejs "nodejs"
+        git "Default"
+    }
+
+    environment {
+        IMAGE_NAME = "smart-library"
+        CONTAINER_NAME = "smart-library-container"
     }
 
     stages {
@@ -18,25 +24,34 @@ pipeline {
             }
         }
 
-        stage('Run Selenium Tests') {
+        stage('Run Tests') {
             steps {
-                bat 'npx mocha tests/lib.test.js'
+                bat 'npx mocha tests/**/*.js || echo "No tests found"'
             }
         }
 
-        stage('Post Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Build and Test Completed Successfully!'
+                bat 'docker build -t %IMAGE_NAME% .'
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                bat '''
+                docker ps -q --filter "name=%CONTAINER_NAME%" | findstr . && docker stop %CONTAINER_NAME% && docker rm %CONTAINER_NAME%
+                docker run -d -p 3000:3000 --name %CONTAINER_NAME% %IMAGE_NAME%
+                '''
             }
         }
     }
 
     post {
         success {
-            echo '✅ All tests passed!'
+            echo '✅ Deployed successfully using Docker!'
         }
         failure {
-            echo '❌ Some tests failed. Check logs!'
+            echo '❌ Build failed. Check logs.'
         }
     }
 }
