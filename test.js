@@ -1,25 +1,20 @@
-const { Builder, By, until } = require("selenium-webdriver");
+const { Builder, By } = require("selenium-webdriver");
 
 (async function testLibrarySearch() {
   let driver = await new Builder().forBrowser("chrome").build();
   try {
-    await driver.get("C://Users//siri//OneDrive//Desktop//lib-search//index.html");
-
+    await driver.get("C://Users//siri//library-search//index.html");
     const searchBox = await driver.findElement(By.id("search"));
-    await searchBox.sendKeys("Java for Beginners");
+    await searchBox.sendKeys("alice");
     await driver.findElement(By.tagName("button")).click();
-
-    await driver.sleep(2000); // wait for results
+    await driver.sleep(2000);
 
     const results = await driver.findElements(By.className("book"));
-    if (results.length > 0) {
-      console.log("✅ Test Passed: Book Found");
-    } else {
-      console.log("❌ Test Failed: No Results");
-    }
+    if (results.length > 0) console.log("✅ Test Passed: Book Found");
+    else console.log("❌ Test Failed: No Results");
   } catch (err) {
     console.error("Error:", err);
-  } /*finally {
+  } finally {
     await driver.quit();
-  }*/
+  }
 })();

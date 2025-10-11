@@ -3,16 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Library</title>
+  <title>Online Library - Book Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-  <h1>📚 Online Library Book Search</h1>
-  <input type="text" id="search" placeholder="Search by title or author">
-  <button onclick="searchBooks()">Search</button>
-  <p id="no-results" style="display:none;">No Results Found</p>
-  <div id="results"></div>
+  <div class="hero">
+    <div class="hero-icon">📚</div>
+    <h1>Online Library</h1>
+    <p class="subtitle">Discover your next great read from thousands of books</p>
+    
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search by title or author...">
+      <button id="searchBtn" onclick="searchBooks()">Search</button>
+    </div>
+  </div>
 
+  <div class="container">
+    <div id="loading" style="display:none;">
+      <div class="spinner"></div>
+      <p>Searching library...</p>
+    </div>
+    
+    <div id="no-results" style="display:none;">
+      <div class="no-results-icon">📚❌</div>
+      <h2>No Results Found</h2>
+      <p>Try searching with different keywords or check your spelling</p>
+    </div>
+    
+    <div id="results"></div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
