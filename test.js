@@ -6,7 +6,7 @@ const { Builder, By, until } = require("selenium-webdriver");
     await driver.get("C://Users//siri//OneDrive//Desktop//lib-search//index.html");
 
     const searchBox = await driver.findElement(By.id("search"));
-    await searchBox.sendKeys("Java");
+    await searchBox.sendKeys("Java for Beginners");
     await driver.findElement(By.tagName("button")).click();
 
     await driver.sleep(2000); // wait for results
@@ -19,7 +19,7 @@ const { Builder, By, until } = require("selenium-webdriver");
     }
   } catch (err) {
     console.error("Error:", err);
-  } finally {
+  } /*finally {
     await driver.quit();
-  }
+  }*/
 })();
