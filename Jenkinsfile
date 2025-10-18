@@ -40,7 +40,7 @@ pipeline {
             steps {
                 bat '''
                 docker ps -q --filter "name=%CONTAINER_NAME%" | findstr . && docker stop %CONTAINER_NAME% && docker rm %CONTAINER_NAME%
-                docker run -d -p 3000:3000 --name %CONTAINER_NAME% %IMAGE_NAME%
+                docker run -d -p 4000:4000 --name %CONTAINER_NAME% %IMAGE_NAME%
                 '''
             }
         }
