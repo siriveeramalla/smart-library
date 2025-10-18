@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Nearest Library</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Select a Library</h1>
+    <select id="librarySelect">
+      <option value="">-- Choose Library --</option>
+      <option>State Central Library, Hyderabad</option>
+      <option>City Central Library, Hyderabad</option>
+      <option>Sri Krishna Devaraya Telugu Bhasha Nilayam</option>
+      <option>Sundarayya Vignana Kendram</option>
+      <option>Marathi Granth Sangrahalay, Hyderabad</option>
+      <option>Coforge Public Library, Hyderabad</option>
+      <option>Public Library – Kondapur (Hyderabad)</option>
+      <option>Grandhalaya Samastha Library, Sanjeeva Reddy Nagar</option>
+      <option>Shaikpet Public Library, Hyderabad</option>
+      <option>Deepa’s Reading Room & Library, Padmarao Nagar</option>
+    </select>
+    <button onclick="goToIndex()">Continue</button>
+  </div>
+
+  <script>
+    function goToIndex() {
+      const selectedLibrary = document.getElementById('librarySelect').value;
+      if (selectedLibrary) {
+        localStorage.setItem('selectedLibrary', selectedLibrary);
+        window.location.href = 'index.html';
+      } else {
+        alert('Please select a library first.');
+      }
+    }
+  </script>
+</body>
+</html>

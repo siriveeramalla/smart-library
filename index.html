@@ -36,6 +36,15 @@
     
     <div id="results"></div>
   </div>
+  <h2 id="selectedLibrary"></h2>
+<script>
+  const selectedLibrary = localStorage.getItem("selectedLibrary");
+  if (selectedLibrary) {
+    document.getElementById("selectedLibrary").innerText =
+      `Searching books in: ${selectedLibrary}`;
+  }
+</script>
+
   <script src="script.js"></script>
 </body>
 </html>
